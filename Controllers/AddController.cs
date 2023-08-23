@@ -8,6 +8,8 @@ namespace SaasProject.Controllers
     [Route("[controller]")]
     public class AddController : ControllerBase
     {
+        private static List<int> results = new List<int>();
+
         [HttpPost]
         public IActionResult Post([FromBody] Numbers numbers)
         {
@@ -17,7 +19,15 @@ namespace SaasProject.Controllers
             }
 
             int sum = numbers.Num1 + numbers.Num2;
+            results.Add(sum);
+
             return Ok(new { Sum = sum });
+        }
+
+        [HttpGet("results")]
+        public IActionResult GetResults()
+        {
+            return Ok(results);
         }
     }
 }
