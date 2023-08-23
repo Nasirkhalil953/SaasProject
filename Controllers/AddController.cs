@@ -21,7 +21,7 @@ namespace SaasProject.Controllers
             int sum = numbers.Num1 + numbers.Num2;
             results.Add(sum);
 
-            return Ok(new { Sum = sum });
+            return Ok(sum);
         }
 
         [HttpGet("results")]
